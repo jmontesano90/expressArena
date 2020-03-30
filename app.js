@@ -68,6 +68,11 @@ app.get("/sum", (req, res) => {
   if (isNaN(aRefined) || isNaN(bRefined)) {
     return res.status(400).send("Please provide a number for both inputs");
   }
+  /*const {a,b} = req.query;
+  if(!a || !a || isNaN(a) || isNaN(b)){
+    return res.status(400).send('Please provide a & b and both should be a number');
+  }
+  res.send(`The sum of ${a} and ${b} is ${parseInt(a) + parseInt(b)}`);*/
   const greeting = `The sum of ${a} and ${b} is ${aRefined + bRefined}`;
   res.send(greeting);
 });
@@ -129,6 +134,15 @@ app.get("/lotto", (req, res) => {
   }
 
   let greeting = "did not work";
+
+  /*let messages = {
+      1:'Sorry you lost',
+      4:'Congarulations free ticket',
+      5:'$100',
+      6:'millions'
+  }
+
+  res.send(messages[lottoCount]);*/
 
   if (lottoCount < 4) {
     greeting = "Sorry, you lost!";
